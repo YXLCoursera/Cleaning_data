@@ -1,0 +1,58 @@
+# Code Book
+
+## Data Source
+
+Human Activity Recognition Using Smartphones Dataset  
+UCI Machine Learning Repository  
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+The data were collected from the accelerometers and gyroscopes of the
+Samsung Galaxy S smartphone.
+
+## Original Data Files
+
+- `X_train.txt`, `X_test.txt`: sensor measurements
+- `y_train.txt`, `y_test.txt`: activity labels
+- `subject_train.txt`, `subject_test.txt`: subject identifiers
+- `features.txt`: feature names
+- `activity_labels.txt`: activity descriptions
+
+## Variables in the Tidy Dataset
+
+### Identifiers
+
+- `subject`  
+  Integer identifier of the subject (values 1–30)
+
+- `activity`  
+  Descriptive activity name:
+  - WALKING
+  - WALKING_UPSTAIRS
+  - WALKING_DOWNSTAIRS
+  - SITTING
+  - STANDING
+  - LAYING
+
+### Measurements
+
+Only measurements containing **mean()** or **std()** were retained.
+These include:
+
+- Time-domain and frequency-domain signals
+- Accelerometer and gyroscope measurements
+- Magnitude signals
+
+Variable names were cleaned to be readable and descriptive (e.g.,
+Time, Frequency, Accelerometer, Gyroscope, Mean, StdDev).
+
+## Transformations Performed
+
+The following steps were performed in `analysis.R`:
+
+1. Downloaded and unzipped the dataset
+2. Merged training and test datasets
+3. Extracted measurements on the mean and standard deviation
+4. Replaced activity IDs with descriptive activity names
+5. Cleaned and labeled variable names
+6. Created a second tidy dataset by calculating the average of each
+   variable for each subject and each activity
